@@ -26,6 +26,7 @@ jobs:
         uses: arduino/setup-protoc@v1
         with:
           version: "3.20.2"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.17.0
