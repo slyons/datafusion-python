@@ -14,5 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions-rs/toolchain@v1
+        with:
+            toolchain: stable
+
+      - name: Set up Rust targets
+        if: matrix.os == 'macos-14' 
+        run: rustup target add aarch64-apple-darwin
+    
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v1
+        with:
+          version: "3.20.2"
+
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.17.0
