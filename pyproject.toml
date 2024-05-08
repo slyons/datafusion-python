@@ -63,3 +63,7 @@ exclude = [".github/**", "ci/**", ".asf.yaml"]
 # Require Cargo.lock is up to date
 locked = true
 features = ["substrait"]
+
+[tool.cibuildwhee]
+test-requires = "pytest"
+test-command = "pytest"
